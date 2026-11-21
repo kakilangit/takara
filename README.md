@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/icons/takara-256.png" alt="Takara icon" width="128">
+</p>
+
 <h1 align="center">Takara</h1>
 
 <p align="center">
