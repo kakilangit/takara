@@ -1,1 +1,76 @@
-# takara
+<h1 align="center">Takara</h1>
+
+<p align="center">
+  <strong>Your S3 buckets, on your Mac.</strong><br>
+  Connect, browse, upload, download, and share, on Garage and any other S3-compatible store.
+</p>
+
+<p align="center">
+  <a href="https://github.com/kakilangit/takara/releases/latest"><img src="https://img.shields.io/github/v/release/kakilangit/takara?label=download" alt="Latest release"></a>
+  <img src="https://img.shields.io/badge/macOS-Apple%20silicon%20%26%20Intel-black" alt="macOS, Apple silicon and Intel">
+  <img src="https://img.shields.io/badge/price-free-brightgreen" alt="Free">
+</p>
+
+<p align="center">
+  <em>Takara</em> (宝, Japanese for "treasure"). Say it "ta-ka-ra".
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kakilangit/static/64fed1da510a9a0e4bdf7a9f59f230bfc6505d90/takara/takara_screenshot.png" alt="Takara showing the local folder tree, a Garage bucket's contents, and the inspector" width="900">
+</p>
+
+---
+
+Takara is a native macOS app for managing objects in an S3-compatible store. It's built for
+[Garage](https://garagehq.deuxfleurs.fr) first, the object store Takara was written for, and speaks
+the S3 API, so the stores you run yourself work with it.
+
+## What it does
+
+- **One window, two sides.** The Mac's folders on the left, the store on the right, and the
+  object's facts in a narrow inspector — with a rail of arrows between them, the way a file
+  manager should feel.
+- **Connect to what you run.** Endpoint, region, path- or virtual-host addressing, plain HTTP or
+  self-signed HTTPS, a test before saving, and the credentials in your Keychain.
+- **Browse.** Buckets, folders, and objects, with breadcrumbs, sortable columns, and paging that
+  stays quick in a bucket of 100,000 keys.
+- **Move files.** Upload and download with a double click or by dragging between the two panes;
+  single files land by name, folders keep their structure. Pause, resume, cancel, and retry.
+- **Edit the listing.** Rename and delete on either side, make folders, and copy a presigned link
+  for an object.
+- **See what it is.** Size, type, modified date, ETag, storage class, visibility, and metadata for
+  the selected object.
+
+Takara asks the server what it supports and offers only what works there; where a feature isn't
+available it says why instead of showing a dead control.
+
+## Install
+
+With [Homebrew](https://brew.sh):
+
+```sh
+brew install --cask kakilangit/tap/takara
+```
+
+Or download `Takara-<version>-universal.dmg` from
+[Releases](https://github.com/kakilangit/takara/releases/latest) and drag Takara to Applications.
+Runs on Apple silicon and Intel Macs.
+
+> [!NOTE]
+> Takara isn't notarized yet, so macOS blocks it at first. Homebrew takes care of that for you. If
+> you installed from the `.dmg`, run:
+>
+> ```sh
+> xattr -cr /Applications/Takara.app
+> ```
+
+Connection secrets are kept in your macOS Keychain, never in a file. To remove them, delete the
+`dev.kakilangit.takara` items in Keychain Access.
+
+## Feedback
+
+Bug reports and ideas are welcome in [Issues](https://github.com/kakilangit/takara/issues).
+
+## License
+
+Free to use, not open source. See [LICENSE](LICENSE).
