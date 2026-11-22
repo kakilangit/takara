@@ -6,7 +6,8 @@
 
 <p align="center">
   <strong>Your S3 buckets, on your Mac.</strong><br>
-  Connect, browse, upload, download, and share, on Garage and any other S3-compatible store.
+  Connect, browse, upload, download, and share — on Garage, Amazon S3, Cloudflare R2, MinIO, and
+  any other S3-compatible store.
 </p>
 
 <p align="center">
@@ -20,30 +21,36 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kakilangit/static/64fed1da510a9a0e4bdf7a9f59f230bfc6505d90/takara/takara_screenshot.png" alt="Takara showing the local folder tree, a Garage bucket's contents, and the inspector" width="900">
+  <img src="https://raw.githubusercontent.com/kakilangit/static/64fed1da510a9a0e4bdf7a9f59f230bfc6505d90/takara/takara_screenshot.png" alt="Takara showing the local pane, a bucket's contents, and the inspector" width="900">
 </p>
 
 ---
 
 Takara is a native macOS app for managing objects in an S3-compatible store. It's built for
-[Garage](https://garagehq.deuxfleurs.fr) first, the object store Takara was written for, and speaks
-the S3 API, so the stores you run yourself work with it.
+[Garage](https://garagehq.deuxfleurs.fr) first — the object store Takara was written for — and
+works with Amazon S3, Cloudflare R2, MinIO, and the stores you run yourself.
 
 ## What it does
 
-- **One window, two sides.** The Mac's folders on the left, the store on the right, and the
-  object's facts in a narrow inspector — with a rail of arrows between them, the way a file
-  manager should feel.
-- **Connect to what you run.** Endpoint, region, path- or virtual-host addressing, plain HTTP or
-  self-signed HTTPS, a test before saving, and the credentials in your Keychain.
-- **Browse.** Buckets, folders, and objects, with breadcrumbs, sortable columns, and paging that
-  stays quick in a bucket of 100,000 keys.
-- **Move files.** Upload and download with a double click or by dragging between the two panes;
-  single files land by name, folders keep their structure. Pause, resume, cancel, and retry.
-- **Edit the listing.** Rename and delete on either side, make folders, and copy a presigned link
-  for an object.
-- **See what it is.** Size, type, modified date, ETag, storage class, visibility, and metadata for
-  the selected object.
+- **A tab per task.** Each tab is a whole place — connection, bucket, prefix, local folder — and
+  you can have eight. The title bar's chips switch connection or bucket without leaving the
+  listing, and `⌘[` / `⌘]` walk back through where you've been.
+- **Connect to what you run.** The form asks each service for what it needs — a region for Amazon
+  S3, an account id for Cloudflare R2, an address for Garage and MinIO — and builds the endpoint
+  for you. A test runs before saving, and a failure comes with the one fix that gets further.
+  Credentials live in your Keychain, never in a file.
+- **Browse.** Two panes: your Mac's folders on the left, the bucket on the right. Path bars,
+  sortable columns, a filter that counts what it shows, a prefix search that asks the server, and
+  a listing that stays quick at 100,000 keys. `⌘K` jumps to a connection, bucket, or typed path.
+- **Move files.** Select rows and a send bar names where they'll land. Upload and download by
+  click, drag, or send bar; folders keep their structure. Pause, resume, cancel, and retry — and
+  the Activity drawer says what's moving and how fast. One queue serves the window, so a job
+  outlives the tab that started it.
+- **Edit the listing.** Rename files and folders, delete, make folders, and copy a presigned
+  link for an object.
+- **Know what you're touching.** The inspector shows size, type, dates, ETag, storage class,
+  visibility, and metadata. A Production connection wears its color across the window, and a
+  delete there names the bucket and the count.
 
 Takara asks the server what it supports and offers only what works there; where a feature isn't
 available it says why instead of showing a dead control.
@@ -68,8 +75,8 @@ Runs on Apple silicon and Intel Macs.
 > xattr -cr /Applications/Takara.app
 > ```
 
-Connection secrets are kept in your macOS Keychain, never in a file. To remove them, delete the
-`dev.kakilangit.takara` items in Keychain Access.
+To remove the secrets Takara keeps in your Keychain, delete the `dev.kakilangit.takara` items in
+Keychain Access.
 
 ## Feedback
 
